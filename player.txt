@@ -1,0 +1,31 @@
+move 1270 402 3
+move 100 100 1
+Move 1000 600 1
+Move 1000 600 1
+ROTATE 700 3
+addSound WakingUpLate.wav
+loopSound
+Move 1000 100 1
+Move 300 500 1
+hide
+Move 1000 600 1
+show 
+// COMMENTS OOOOHHHHH
+ROTATE 700 3
+Move 800 600 1
+Move 100 100 1
+move 700 300 3
+move 555 555 3
+Move 1000 100 1
+Move 300 500 1
+move 700 300 3
+move 555 555 2.6
+move 555 555 1
+ROTATE 760 3
+Move 1000 600 1
+Move 1000 600 1
+resize 2 3
+resize 2 1
+move 300 666 2
+move 555 555 1
+ROTATE 760 3

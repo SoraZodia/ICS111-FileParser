@@ -1,0 +1,34 @@
+background minecraft.png
+resiZebackground 2
+Move 500 500 1
+Move 1000 500 4
+move 700 300 3
+background i-have-no-idea-what-im-doing-dog.jpg
+layerUpBackground 1
+Move 1200 300 4
+MOVE 1200 300 1
+hideBackground
+resize 10 4
+hide
+resize 5 4
+show
+Move 100 100 1
+rotate 650 3
+move 500 500 1
+Move 100 100 1
+Move 800 600 1
+Move 100 100 1
+move 700 300 3
+move 555 555 5
+Move 1000 100 1
+Move 300 500 1
+move 700 300 3
+move 700 300 3
+move 555 555 5
+ROTATE 700 3
+ROTATE 700 3
+resize 5 3
+resize 5 1
+rotate 650 5
+rotate 650 5
+move 500 500 1

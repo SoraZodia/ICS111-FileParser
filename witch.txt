@@ -1,0 +1,38 @@
+addSound Tetris.wav
+loopSound
+Move 1100 100 1
+Move 100 100 1
+Move 100 100 1
+rotate 650 5
+stopSound 
+move 500 500 1
+Move 100 100 1
+rotate 40 3
+move 1100 333 3
+move 300 666 2
+resize 2 2
+resize 10 4
+hide
+resize 5 4
+resize 5 4
+show
+Move 100 100 1
+rotate 650 5
+move 500 500 1
+Move 100 100 1
+addtext 500 350 40 Sooo you never saw Nothin'... 
+showtext
+move 400 400 5
+addtext 100 150 25 Just forgot it...
+showtext
+Move 1000 600 1
+resize 2 3
+addtext 1000 600 10 Never mind, this stuff is dead in...
+showtext
+resize 2 1
+move 300 666 2
+wait
+wait
+wait
+wait
+exit
