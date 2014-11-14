@@ -25,8 +25,8 @@ public class Image {
 		image = EZ.addImage(imageName, x, y);
 		startX = x;
 		startY = y;
-		oldDegree = (float) image.getRotation();
-		oldSize = (float) image.getScale();
+		oldDegree = 0;
+		oldSize = 1;
 		sound = new SoundEffect(soundName, image);
 		interpolation = false;
 	}

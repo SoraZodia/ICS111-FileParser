@@ -20,7 +20,7 @@ public class edmundgh_FileParser { //Yes Eclipse, I know the convention for clas
   private float y;
   private float time;
   private float degree;
-  private float size;
+  private float size = 1;
   private short push;
   private boolean play = true;
   private static String soundName;
@@ -63,7 +63,7 @@ public class edmundgh_FileParser { //Yes Eclipse, I know the convention for clas
 		  size = reader.nextFloat();
 		  time = reader.nextFloat();
 		  image.setInterpolAll(x, y, degree, size, time);
-		  System.out.printf("[%s Log] Image to X:%s, Y:%s, Degree:%s, Size:%s in %s secord \n", name,x,y,degree,size,time);
+		  System.out.printf("[%s Log] Image to X:%s, Y:%s, Degree:%s, Size:x%s in %s secord \n", name,x,y,degree,size,time);
 		  break;
 
 	  case "move":
