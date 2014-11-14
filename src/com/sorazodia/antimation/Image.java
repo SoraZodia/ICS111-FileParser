@@ -93,47 +93,20 @@ public class Image {
 	 */
 	public void setInterpolAll(float x, float y, float degree, float size, float dur){
 		
-	}
-	
-	/**
-	 * Set the location for the image to move to
-	 * @param x
-	 * @param y
-	 * @param dur
-	 */
-	public void setInterpolTran(float x, float y, float dur){
 		startX = image.getWorldXCenter();
 		startY = image.getWorldYCenter();
 		destX = x;
 		destY = y;
-		startTime = System.nanoTime();
-		duration = covertToNanoTime((long)dur);
-		interpolation = true;
-	}
-
-	/**
-	 * Set the size which the image expand or decrease to
-	 * @param size
-	 * @param dur
-	 */
-	public void setInterpolScale(float size, float dur){
+		
 		newSize = size;
 		oldSize = (float) image.getScale();
-		duration = covertToNanoTime((long)dur);
-		startTime = System.nanoTime();
-		interpolation = true;
-	}
-
-	/**
-	 * Set the degree which the image will turn
-	 * @param degree
-	 * @param dur
-	 */
-	public void setInterpolSpin(float degree, float dur){
-		duration = covertToNanoTime((long)dur);
-		startTime = System.nanoTime();
+		
 		newDegree = degree;
 		oldDegree = (float) image.getRotation();
+		
+		duration = covertToNanoTime((long)dur);
+		startTime = System.nanoTime();
+		
 		interpolation = true;
 	}
 	
@@ -152,59 +125,6 @@ public class Image {
 	}
 	
 	/**
-	 * Moves the image within a time frame
-	 * @param x
-	 * @param y
-	 */
-	private void interpolTranlate(float x, float y){		
-		if (interpolation == true) {
-			float xTran = getInter(x, startX, destX, duration);
-			float yTran = getInter(y, startY, destY, duration);
-
-			if ((System.nanoTime() - startTime) >= duration) {
-				interpolation = false;
-				destX = x; destY = y;
-			}
-			image.translateTo(xTran, yTran);
-		}
-	}
-
-	/**
-	 * Spins the image within a time frame
-	 * @param degree
-	 */
-	private void interpolDegree(float degree){
-		if (interpolation == true) {
-			
-			float degreeTran = getInter(degree, oldDegree, newDegree, duration);
-			
-			if ((System.nanoTime() - startTime) >= duration) {
-				interpolation = false;
-				newDegree = degree;
-			}
-			image.rotateTo(degreeTran);
-		}
-	}
-	
-	/**
-	 * Expands or shrink the image within a time frame
-	 * @param size
-	 */
-	private void interpolSize(float size){
-		if (interpolation == true) {
-			
-			float sizeTran = getInter(size, oldSize, newSize, duration);
-			
-			if ((System.nanoTime() - startTime) >= duration) {
-				interpolation = false;
-				newSize = size;
-			}
-			
-			if(newSize!=0)image.scaleTo(sizeTran);
-		}
-	}
-	
-	/**
 	 * Resize, spin, and translate the image all at the same time
 	 * @param x
 	 * @param y
@@ -212,7 +132,25 @@ public class Image {
 	 * @param size
 	 */
 	private void interAll(float x, float y, float degree, float size){
-		
+
+		if (interpolation == true) {
+
+			float sizeTran = getInter(size, oldSize, newSize, duration);
+			float degreeTran = getInter(degree, oldDegree, newDegree, duration);
+			float xTran = getInter(x, startX, destX, duration);
+			float yTran = getInter(y, startY, destY, duration);
+
+			if ((System.nanoTime() - startTime) >= duration) {
+				interpolation = false;
+				newSize = size;
+				newDegree = degree;
+				destX = x; destY = y;
+			}
+			image.scaleTo(sizeTran);
+			image.rotateTo(degreeTran);
+			image.translateTo(xTran, yTran);
+		}
+
 	}
 	
 	/**
@@ -256,9 +194,7 @@ public class Image {
 	 */
 	public void go(){
 		 sound.doClickSound();
-		 interpolSize(newSize);
-		 interpolDegree(newDegree);
-		 interpolTranlate(destX, destY);
+		 interAll(destX, destY, newDegree, newSize);
 	}
 
 }

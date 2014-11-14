@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.io.IOException;
 
 import com.sorazodia.antimation.EZ;
-import com.sorazodia.filereader.FileParser;
+import com.sorazodia.filereader.edmundgh_FileParser;
 
 /**
  * Main Class
@@ -24,11 +24,11 @@ public class AntimationEngine {
 		init();
 		
 		//ARRAYS FOR THE WIN
-		FileParser actors[] = 
+		edmundgh_FileParser actors[] = 
 			{
-				new FileParser("creeper.txt", "creeper.png", "explosion.wav", EZ.getWindowWidth()/2, 650),
-				new FileParser("witch.txt", "witch.png", "squish.wav", EZ.getWindowWidth()/2, 650),
-				new FileParser("player.txt", "player.png", "cheehoo.wav",EZ.getWindowWidth()/2, 650)
+				new edmundgh_FileParser("creeper.txt", "creeper.png", "explosion.wav", EZ.getWindowWidth()/2, 650),
+				new edmundgh_FileParser("witch.txt", "witch.png", "squish.wav", EZ.getWindowWidth()/2, 650),
+				new edmundgh_FileParser("player.txt", "player.png", "cheehoo.wav",EZ.getWindowWidth()/2, 650)
 		    };	
 
 		while(running){
